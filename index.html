@@ -3,340 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FirstDollar - Your first $1000 MRR, or your money back</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
+    <title>FirstDollar - Your zero-to-revenue playbook</title>
+    <meta name="description" content="30-day challenge, cohort community, and Traction Score for solo SaaS founders who need to get to revenue fast.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --primary: #2563eb; --primary-dark: #1d4ed8; --primary-light: #3b82f6;
+            --accent: #f59e0b; --accent-dark: #d97706; --bg-dark: #0f172a;
+            --bg-card: #1e293b; --text-primary: #f8fafc; --text-secondary: #94a3b8;
+            --text-muted: #64748b; --border: #334155; --success: #10b981;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg-dark); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        nav { padding: 20px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); z-index: 100; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 800; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--accent); }
+        .nav-cta { background: var(--primary); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.2s; }
+        .nav-cta:hover { background: var(--primary-dark); }
+        .hero { padding: 80px 0 100px; text-align: center; background: linear-gradient(180deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%); }
+        .hero-badge { display: inline-block; background: rgba(37, 99, 235, 0.2); color: var(--primary-light); padding: 6px 16px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(37, 99, 235, 0.3); }
+        .hero h1 { font-size: clamp(40px, 6vw, 64px); font-weight: 800; line-height: 1.1; margin-bottom: 24px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .hero h1 span { background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { font-size: 20px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; }
+        .waitlist-form { max-width: 480px; margin: 0 auto; }
+        .form-row { display: flex; gap: 12px; margin-bottom: 12px; }
+        .form-input { flex: 1; padding: 14px 18px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); font-size: 16px; transition: border-color 0.2s, box-shadow 0.2s; }
+        .form-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); }
+        .form-input::placeholder { color: var(--text-muted); }
+        .form-submit { padding: 14px 28px; border-radius: 10px; border: none; background: var(--accent); color: var(--bg-dark); font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.1s; white-space: nowrap; }
+        .form-submit:hover { background: var(--accent-dark); }
+        .form-submit:active { transform: scale(0.98); }
+        .form-submit:disabled { background: var(--text-muted); cursor: not-allowed; }
+        .form-note { font-size: 13px; color: var(--text-muted); }
+        .form-success { display: none; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--success); border-radius: 12px; padding: 24px; text-align: center; }
+        .form-success.show { display: block; }
+        .form-success h3 { color: var(--success); font-size: 20px; margin-bottom: 8px; }
+        .form-success p { color: var(--text-secondary); margin: 0; }
+        .section { padding: 80px 0; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+        .section-label { color: var(--primary-light); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .section-title { font-size: clamp(32px, 4vw, 42px); font-weight: 800; margin-bottom: 16px; }
+        .section-desc { color: var(--text-secondary); font-size: 18px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .feature-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px; transition: border-color 0.2s, transform 0.2s; }
+        .feature-card:hover { border-color: var(--primary); transform: translateY(-4px); }
+        .feature-icon { width: 56px; height: 56px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 20px; }
+        .feature-icon.challenge { background: rgba(37, 99, 235, 0.2); }
+        .feature-icon.cohort { background: rgba(245, 158, 11, 0.2); }
+        .feature-icon.score { background: rgba(16, 185, 129, 0.2); }
+        .feature-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+        .feature-card p { color: var(--text-secondary); font-size: 15px; }
+        .feature-card ul { list-style: none; margin-top: 16px; }
+        .feature-card li { color: var(--text-secondary); font-size: 14px; padding: 6px 0; padding-left: 20px; position: relative; }
+        .feature-card li::before { content: "✓"; position: absolute; left: 0; color: var(--success); }
+        .pricing-section { background: linear-gradient(180deg, transparent 0%, rgba(37, 99, 235, 0.05) 100%); }
+        .pricing-card { max-width: 480px; margin: 0 auto; background: var(--bg-card); border: 2px solid var(--primary); border-radius: 24px; padding: 48px; text-align: center; position: relative; overflow: hidden; }
+        .pricing-card::before { content: "Most Popular"; position: absolute; top: 20px; right: -35px; background: var(--accent); color: var(--bg-dark); font-size: 12px; font-weight: 700; padding: 4px 40px; transform: rotate(45deg); }
+        .pricing-price { font-size: 72px; font-weight: 800; line-height: 1; margin-bottom: 8px; }
+        .pricing-price span { font-size: 24px; color: var(--text-muted); }
+        .pricing-period { color: var(--text-muted); margin-bottom: 32px; }
+        .pricing-features { list-style: none; text-align: left; margin-bottom: 32px; }
+        .pricing-features li { padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 16px; }
+        .pricing-features li:last-child { border-bottom: none; }
+        .pricing-features li::before { content: "✓"; color: var(--success); font-weight: 700; }
+        .pricing-cta { display: block; width: 100%; padding: 18px; background: var(--primary); color: white; border: none; border-radius: 12px; font-size: 18px; font-weight: 700; cursor: pointer; transition: background 0.2s; text-decoration: none; }
+        .pricing-cta:hover { background: var(--primary-dark); }
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-question { width: 100%; padding: 24px 0; background: none; border: none; color: var(--text-primary); font-size: 18px; font-weight: 600; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit; }
+        .faq-question:hover { color: var(--primary-light); }
+        .faq-question::after { content: "+"; font-size: 24px; color: var(--text-muted); transition: transform 0.2s; }
+        .faq-item.open .faq-question::after { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.open .faq-answer { max-height: 300px; }
+        .faq-answer p { padding-bottom: 24px; color: var(--text-secondary); font-size: 16px; line-height: 1.7; }
+        footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 14px; }
+        @media (max-width: 640px) { .form-row { flex-direction: column; } .hero { padding: 60px 0 80px; } .section { padding: 60px 0; } .pricing-card { padding: 32px 24px; } .pricing-price { font-size: 56px; } }
+    </style>
 </head>
-<body class="bg-[#0a0a0f] text-white font-sans antialiased">
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0f]/90 backdrop-blur-sm border-b border-gray-800">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold tracking-tight">
-                <span class="text-[#00ff88]">First</span>Dollar
-            </div>
-            <a href="#pricing" class="bg-[#00ff88] text-[#0a0a0f] px-4 py-2 rounded-lg font-semibold text-sm hover:bg-[#00dd77] transition-colors">
-                Get Started
-            </a>
-        </div>
-    </nav>
-
-    <section class="min-h-screen flex items-center justify-center pt-20 pb-12 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 bg-[#1a1a2e] rounded-full px-4 py-2 mb-8 border border-gray-700">
-                <span class="w-2 h-2 bg-[#00ff88] rounded-full animate-pulse"></span>
-                <span class="text-sm text-gray-300">347 founders enrolled</span>
-            </div>
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                Your first <span class="text-[#00ff88]">$1000 MRR</span>,<br>or your money back.
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto">
-                A 30-day challenge that takes you from idea to paying customers. Join the cohort that actually ships.
-            </p>
-            <form id="hero-form" class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto mb-8">
-                <input 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    required
-                    class="flex-1 px-6 py-4 rounded-xl bg-[#1a1a2e] border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#00ff88] transition-colors"
-                >
-                <button type="submit" class="px-8 py-4 bg-[#00ff88] text-[#0a0a0f] rounded-xl font-bold text-lg hover:bg-[#00dd77] transition-colors whitespace-nowrap">
-                    Start Free
-                </button>
-            </form>
-            <p class="text-sm text-gray-500">No credit card required • 30-day money-back guarantee</p>
-        </div>
-    </section>
-
-    <section class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">The 30-Day Challenge</h2>
-                <p class="text-gray-400 text-lg">Four phases. Clear milestones. Real customers.</p>
-            </div>
-            <div class="relative">
-                <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-[#00ff88]/20 via-[#00ff88]/50 to-[#00ff88]/20 transform -translate-y-1/2"></div>
-                <div class="grid md:grid-cols-4 gap-8">
-                    <div class="relative bg-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-[#00ff88]/50 transition-colors group">
-                        <div class="absolute -top-4 left-6 bg-[#00ff88] text-[#0a0a0f] px-3 py-1 rounded-full text-sm font-bold">Days 1-7</div>
-                        <div class="mt-4">
-                            <h3 class="text-xl font-bold mb-3 group-hover:text-[#00ff88] transition-colors">Find Your First Customer</h3>
-                            <p class="text-gray-400 text-sm">Validate your idea, identify your ideal customer, and get your first commitment.</p>
-                        </div>
-                    </div>
-                    <div class="relative bg-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-[#00ff88]/50 transition-colors group">
-                        <div class="absolute -top-4 left-6 bg-[#00ff88] text-[#0a0a0f] px-3 py-1 rounded-full text-sm font-bold">Days 8-14</div>
-                        <div class="mt-4">
-                            <h3 class="text-xl font-bold mb-3 group-hover:text-[#00ff88] transition-colors">Build Your Funnel</h3>
-                            <p class="text-gray-400 text-sm">Create your landing page, set up payments, and build your first acquisition channel.</p>
-                        </div>
-                    </div>
-                    <div class="relative bg-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-[#00ff88]/50 transition-colors group">
-                        <div class="absolute -top-4 left-6 bg-[#00ff88] text-[#0a0a0f] px-3 py-1 rounded-full text-sm font-bold">Days 15-21</div>
-                        <div class="mt-4">
-                            <h3 class="text-xl font-bold mb-3 group-hover:text-[#00ff88] transition-colors">Activate & Measure</h3>
-                            <p class="text-gray-400 text-sm">Onboard your first users, track key metrics, and optimize for conversion.</p>
-                        </div>
-                    </div>
-                    <div class="relative bg-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-[#00ff88]/50 transition-colors group">
-                        <div class="absolute -top-4 left-6 bg-[#00ff88] text-[#0a0a0f] px-3 py-1 rounded-full text-sm font-bold">Days 22-30</div>
-                        <div class="mt-4">
-                            <h3 class="text-xl font-bold mb-3 group-hover:text-[#00ff88] transition-colors">Scale or Pivot</h3>
-                            <p class="text-gray-400 text-sm">Double down on what's working or pivot intelligently based on real data.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 px-4 bg-[#0d0d14]">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Traction Score</h2>
-                <p class="text-gray-400 text-lg">Track your progress with our animated 0-100 gauge</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-[#1a1a2e] rounded-2xl p-6 border border-gray-800 text-center">
-                    <div class="gauge-container mb-4">
-                        <svg class="gauge-svg" viewBox="0 0 120 80" data-target="15">
-                            <path class="gauge-bg" d="M 10 70 A 50 50 0 0 1 110 70" fill="none" stroke="#2a2a3e" stroke-width="10" stroke-linecap="round"/>
-                            <path class="gauge-fill" d="M 10 70 A 50 50 0 0 1 110 70" fill="none" stroke="#00ff88" stroke-width="10" stroke-linecap="round" stroke-dasharray="0 157" stroke-dashoffset="78.5"/>
-                            <text x="60" y="65" text-anchor="middle" class="gauge-value" fill="white" font-size="20" font-weight="bold">0</text>
-                        </svg>
-                    </div>
-                    <div class="text-sm text-gray-500 mb-2">Score: 15</div>
-                    <div class="text-[#00ff88] font-semibold">Just Starting</div>
-                    <p class="text-gray-400 text-xs mt-2">Pre-launch, validating idea</p>
-                </div>
-                <div class="bg-[#1a1a2e] rounded-2xl p-6 border border-gray-800 text-center">
-                    <div class="gauge-container mb-4">
-                        <svg class="gauge-svg" viewBox="0 0 120 80" data-target="45">
-                            <path class="gauge-bg" d="M 10 70 A 50 50 0 0 1 110 70" fill="none" stroke="#2a2a3e" stroke-width="10" stroke-linecap="round"/>
-                            <path class="gauge-fill" d="M 10 70 A 50 50 0 0 1 110 70" fill="none" stroke="#00ff88" stroke-width="10" stroke-linecap="round" stroke-dasharray="0 157" stroke-dashoffset="78.5"/>
-                            <text x="60" y="65" text-anchor="middle" class="gauge-value" fill="white" font-size="20" font-weight="bold">0</text>
-                        </svg>
-                    </div>
-                    <div class="text-sm text-gray-500 mb-2">Score: 45</div>
-                    <div class="text-[#00ff88] font-semibold">Making Progress</div>
-                    <p class="text-gray-400 text-xs mt-2">First customers, early traction</p>
-                </div>
-                <div class="bg-[#1a1a2e] rounded-2xl p-6 border border-gray-800 text-center">
-                    <div class="gauge-container mb-4">
-                        <svg class="gauge-svg" viewBox="0 0 120 80" data-target="72">
-                            <path class="gauge-bg" d="M 10 70 A 50 50 0 0 1 110 70" fill="none" stroke="#2a2a3e" stroke-width="10" stroke-linecap="round"/>
-                            <path class="gauge-fill" d="M 10 70 A 50 50 0 0 1 110 70" fill="none" stroke="#00ff88" stroke-width="10" stroke-linecap="round" stroke-dasharray="0 157" stroke-dashoffset="78.5"/>
-                            <text x="60" y="65" text-anchor="middle" class="gauge-value" fill="white" font-size="20" font-weight="bold">0</text>
-                        </svg>
-                    </div>
-                    <div class="text-sm text-gray-500 mb-2">Score: 72</div>
-                    <div class="text-[#00ff88] font-semibold">Strong Momentum</div>
-                    <p class="text-gray-400 text-xs mt-2">Growing MRR, clear product-market fit</p>
-                </div>
-                <div class="bg-[#1a1a2e] rounded-2xl p-6 border border-gray-800 text-center">
-                    <div class="gauge-container mb-4">
-                        <svg class="gauge-svg" viewBox="0 0 120 80" data-target="92">
-                            <path class="gauge-bg" d="M 10 70 A 50 50 0 0 1 110 70" fill="none" stroke="#2a2a3e" stroke-width="10" stroke-linecap="round"/>
-                            <path class="gauge-fill" d="M 10 70 A 50 50 0 0 1 110 70" fill="none" stroke="#00ff88" stroke-width="10" stroke-linecap="round" stroke-dasharray="0 157" stroke-dashoffset="78.5"/>
-                            <text x="60" y="65" text-anchor="middle" class="gauge-value" fill="white" font-size="20" font-weight="bold">0</text>
-                        </svg>
-                    </div>
-                    <div class="text-sm text-gray-500 mb-2">Score: 92</div>
-                    <div class="text-[#00ff88] font-semibold">First Dollar Hero</div>
-                    <p class="text-gray-400 text-xs mt-2">Over $1000 MRR, scaling fast</p>
-                </div>
-            </div>
-            <div class="flex flex-wrap justify-between mt-8 px-4 text-sm text-gray-500 max-w-2xl mx-auto gap-2">
-                <span>0-30: Just Starting</span>
-                <span>31-60: Making Progress</span>
-                <span>61-85: Strong Momentum</span>
-                <span>86-100: First Dollar Hero</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Cohort Community</h2>
-                <p class="text-gray-400 text-lg">You're not alone. Build with fellow founders.</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-[#00ff88]/50 transition-colors">
-                    <div class="w-12 h-12 bg-[#00ff88]/10 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-[#00ff88]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Private Slack</h3>
-                    <p class="text-gray-400 text-sm">Connect with your cohort 24/7. Share wins, ask questions, get unstuck fast.</p>
-                </div>
-                <div class="bg-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-[#00ff88]/50 transition-colors">
-                    <div class="w-12 h-12 bg-[#00ff88]/10 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-[#00ff88]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Weekly Office Hours</h3>
-                    <p class="text-gray-400 text-sm">Live Q&A sessions with experienced founders every week. No question too basic.</p>
-                </div>
-                <div class="bg-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-[#00ff88]/50 transition-colors">
-                    <div class="w-12 h-12 bg-[#00ff88]/10 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-[#00ff88]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Accountability Pairs</h3>
-                    <p class="text-gray-400 text-sm">Get matched with a fellow founder for daily check-ins and weekly reviews.</p>
-                </div>
-                <div class="bg-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-[#00ff88]/50 transition-colors">
-                    <div class="w-12 h-12 bg-[#00ff88]/10 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-[#00ff88]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Wall of Fame</h3>
-                    <p class="text-gray-400 text-sm">Founders who hit $1000 MRR get featured. Join the ranks of FirstDollar Heroes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="py-20 px-4 bg-[#0d0d14]">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Start Building Today</h2>
-                <p class="text-gray-400 text-lg">Simple pricing. Zero risk. Full refund if you don't make $1000 MRR.</p>
-            </div>
-            <div class="bg-[#1a1a2e] rounded-3xl p-8 md:p-12 border-2 border-[#00ff88]/30 relative overflow-hidden">
-                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#00ff88]/10 rounded-full blur-3xl"></div>
-                <div class="relative z-10">
-                    <div class="text-center mb-8">
-                        <div class="inline-flex items-center gap-2 bg-[#00ff88]/10 rounded-full px-4 py-2 mb-6">
-                            <svg class="w-5 h-5 text-[#00ff88]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-[#00ff88] text-sm font-semibold">30-Day Money-Back Guarantee</span>
-                        </div>
-                        <div class="flex items-baseline justify-center gap-2">
-                            <span class="text-6xl md:text-7xl font-bold">$99</span>
-                            <span class="text-xl text-gray-400">/month</span>
-                        </div>
-                        <p class="text-gray-400 mt-2">Cancel anytime. No questions asked.</p>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-6 mb-10">
-                        <div class="text-center">
-                            <div class="text-[#00ff88] font-bold mb-2">✓ 30-Day Challenge</div>
-                            <p class="text-gray-400 text-sm">Step-by-step path to your first $1000 MRR</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-[#00ff88] font-bold mb-2">✓ Traction Score</div>
-                            <p class="text-gray-400 text-sm">Track your progress with animated gauge</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-[#00ff88] font-bold mb-2">✓ Cohort Community</div>
-                            <p class="text-gray-400 text-sm">Slack, office hours, accountability pairs</p>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button id="checkout-btn" class="w-full md:w-auto px-12 py-4 bg-[#00ff88] text-[#0a0a0f] rounded-xl font-bold text-lg hover:bg-[#00dd77] transition-colors shadow-lg shadow-[#00ff88]/20">
-                            Get Started — $99/mo
-                        </button>
-                        <p class="text-sm text-gray-500 mt-4">Secure payment via Stripe</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 px-4">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">FAQ</h2>
-            </div>
-            <div class="space-y-4">
-                <div class="faq-item bg-[#1a1a2e] rounded-xl border border-gray-800 overflow-hidden">
-                    <button class="faq-trigger w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-800/30 transition-colors">
-                        <span class="font-semibold">What exactly is the 30-Day Challenge?</span>
-                        <svg class="faq-icon w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-4">
-                        <p class="text-gray-400">A structured program that guides you from validating your idea to acquiring your first paying customers. Each week has specific milestones and deliverables.</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-[#1a1a2e] rounded-xl border border-gray-800 overflow-hidden">
-                    <button class="faq-trigger w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-800/30 transition-colors">
-                        <span class="font-semibold">How does the money-back guarantee work?</span>
-                        <svg class="faq-icon w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-4">
-                        <p class="text-gray-400">If you don't reach $1000 MRR within 30 days of completing the program, we'll refund your first month. No questions asked. We only win if you win.</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-[#1a1a2e] rounded-xl border border-gray-800 overflow-hidden">
-                    <button class="faq-trigger w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-800/30 transition-colors">
-                        <span class="font-semibold">Do I need technical skills?</span>
-                        <svg class="faq-icon w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-4">
-                        <p class="text-gray-400">No. The challenge is designed for non-technical founders too. We'll show you no-code tools and templates to build your funnel without writing code.</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-[#1a1a2e] rounded-xl border border-gray-800 overflow-hidden">
-                    <button class="faq-trigger w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-800/30 transition-colors">
-                        <span class="font-semibold">What if I can't finish in 30 days?</span>
-                        <svg class="faq-icon w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-4">
-                        <p class="text-gray-400">You keep access to all materials and the community. Many founders take 45-60 days to complete the challenge properly. Speed matters, but getting it right matters more.</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-[#1a1a2e] rounded-xl border border-gray-800 overflow-hidden">
-                    <button class="faq-trigger w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-800/30 transition-colors">
-                        <span class="font-semibold">How is FirstDollar different from other programs?</span>
-                        <svg class="faq-icon w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-4">
-                        <p class="text-gray-400">Our money-back guarantee aligns our incentives with yours. We only succeed when you make money. Plus, the cohort model means you're building alongside fellow founders, not alone.</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-[#1a1a2e] rounded-xl border border-gray-800 overflow-hidden">
-                    <button class="faq-trigger w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-800/30 transition-colors">
-                        <span class="font-semibold">Can I cancel anytime?</span>
-                        <svg class="faq-icon w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-4">
-                        <p class="text-gray-400">Yes. Cancel any time from your account dashboard. No hidden fees, no questions asked. If you've completed the challenge but didn't hit $1000 MRR, you qualify for a full refund.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 px-4 border-t border-gray-800">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="text-xl font-bold">
-                <span class="text-[#00ff88]">First</span>Dollar
-            </div>
-            <p class="text-gray-500 text-sm">© 2026 FirstDollar. Your first $1000 MRR, or your money back.</p>
-            <div class="flex gap-6">
-                <a href="#" class="text-gray-400 hover:text-[#00ff88] transition-colors text-sm">Terms</a>
-                <a href="#" class="text-gray-400 hover:text-[#00ff88] transition-colors text-sm">Privacy</a>
-                <a href="#" class="text-gray-400 hover:text-[#00ff88] transition-colors text-sm">Contact</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="app.js"></script>
+<body>
+    <nav><div class="container"><a href="#" class="logo">First<span>Dollar</span></a><a href="#pricing" class="nav-cta">Get Started</a></div></nav>
+    <section class="hero"><div class="container"><div class="hero-badge">Now Accepting Early Signups</div><h1>Your <span>zero-to-revenue</span> playbook</h1><p>Stop guessing, start selling. FirstDollar gives solo SaaS founders a proven 30-day framework, a community of peers, and the metrics that matter.</p><div class="waitlist-form" id="waitlist-form"><form id="signup-form"><div class="form-row"><input type="text" name="name" class="form-input" placeholder="First name" required><input type="email" name="email" class="form-input" placeholder="Email address" required></div><button type="submit" class="form-submit" id="submit-btn">Join the Waitlist</button><p class="form-note">Free to join. No credit card required. 127 founders already signed up.</p></form><div class="form-success" id="form-success"><h3>You're on the list! 🎉</h3><p>We'll be in touch with your invite within 48 hours. In the meantime, tell a fellow founder about FirstDollar.</p></div></div></div></section>
+    <section class="section" id="what"><div class="container"><div class="section-header"><p class="section-label">What You Get</p><h2 class="section-title">Everything you need to hit revenue—fast</h2><p class="section-desc">Three powerful tools, one focused mission: get you from zero to your first dollar in 30 days.</p></div><div class="features-grid"><div class="feature-card"><div class="feature-icon challenge">🔥</div><h3>30-Day Challenge</h3><p>A structured, day-by-day playbook that takes you from idea validation to your first paying customer.</p><ul><li>Daily action items with clear outcomes</li><li>Week 1-2: Validate before you build</li><li>Week 3-4: Get your first 3 customers</li><li>Accountability check-ins</li></ul></div><div class="feature-card"><div class="feature-icon cohort">👥</div><h3>Cohort Community</h3><p>Go from solo founder to part of a tight-knit group of SaaS builders moving fast together.</p><ul><li>Weekly group accountability calls</li><li>Slack community with 200+ founders</li><li>Peer code reviews and feedback</li><li>Guest workshops with successful founders</li></ul></div><div class="feature-card"><div class="feature-icon score">📊</div><h3>Traction Score</h3><p>Know exactly where you stand. Our proprietary scoring system tracks the metrics that predict revenue.</p><ul><li>Weekly Traction Score updates</li><li>5 key metrics that predict success</li><li>Benchmark against cohort averages</li><li>Personalized improvement recommendations</li></ul></div></div></div></section>
+    <section class="section pricing-section" id="pricing"><div class="container"><div class="section-header"><p class="section-label">Pricing</p><h2 class="section-title">Simple, transparent pricing</h2><p class="section-desc">One price. Everything included. No surprises.</p></div><div class="pricing-card"><div class="pricing-price"><span>$</span>99</div><p class="pricing-period">per month, cancel anytime</p><ul class="pricing-features"><li>30-Day Challenge access</li><li>Cohort community membership</li><li>Traction Score dashboard</li><li>Weekly accountability calls</li><li>Guest founder workshops</li><li>Slack channel access</li><li>Priority support</li></ul><a href="#waitlist-form" class="pricing-cta">Join the Waitlist</a></div></div></section>
+    <section class="section" id="faq"><div class="container"><div class="section-header"><p class="section-label">FAQ</p><h2 class="section-title">Questions? We've got answers.</h2></div><div class="faq-list"><div class="faq-item"><button class="faq-question">Who is FirstDollar for?</button><div class="faq-answer"><p>FirstDollar is designed for solo SaaS founders who are serious about getting to revenue quickly. Whether you're pre-launch, struggling to get traction, or looking to systematize your growth, this program gives you the framework, community, and metrics to move faster.</p></div></div><div class="faq-item"><button class="faq-question">How is this different from other SaaS communities?</button><div class="faq-answer"><p>Most communities are passive—lots of content, few results. FirstDollar is action-first. Our 30-day challenge gives you specific, daily actions. The cohort keeps you accountable. And the Traction Score ensures you're working on what actually moves the needle.</p></div></div><div class="faq-item"><button class="faq-question">What if I don't have a product idea yet?</button><div class="faq-answer"><p>The first week of the challenge focuses on validation. We'll help you find a profitable niche, validate demand before you build, and ensure there's a market waiting for what you create. Many founders have used this process to find their winning idea.</p></div></div><div class="faq-item"><button class="faq-question">How does the cohort work?</button><div class="faq-answer"><p>When you join, you're placed in a small cohort (8-12 founders) who move through the 30-day challenge together. You'll have weekly group video calls, 24/7 Slack access, and a shared sense of momentum. Cohorts start on the 1st of each month.</p></div></div><div class="faq-item"><button class="faq-question">Can I cancel anytime?</button><div class="faq-answer"><p>Yes! Month-to-month billing. If FirstDollar isn't working for you, cancel before your next billing date and you won't be charged again. No questions asked, no lock-in.</p></div></div><div class="faq-item"><button class="faq-question">What's the Traction Score?</button><div class="faq-answer"><p>Traction Score is our proprietary metric that combines 5 leading indicators of SaaS revenue: signup rate, activation rate, engagement depth, revenue indicators, and retention signals. Think of it as a credit score for your SaaS's health.</p></div></div></div></div></section>
+    <footer><div class="container"><p>© 2026 FirstDollar. Built for solo SaaS founders who move fast.</p></div></footer>
+    <script>
+        const form = document.getElementById('signup-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const formSuccess = document.getElementById('form-success');
+        form.addEventListener('submit', function(e) { e.preventDefault(); const name = form.querySelector('input[name="name"]').value.trim(); const email = form.querySelector('input[name="email"]').value.trim(); if (!name || !email) return; submitBtn.disabled = true; submitBtn.textContent = 'Joining...'; setTimeout(function() { form.style.display = 'none'; formSuccess.classList.add('show'); const waitlist = JSON.parse(localStorage.getItem('firstdollar_waitlist') || '[]'); waitlist.push({ name, email, date: new Date().toISOString() }); localStorage.setItem('firstdollar_waitlist', JSON.stringify(waitlist)); console.log('Waitlist signup:', { name, email }); }, 1000); });
+        document.querySelectorAll('.faq-item').forEach(function(item) { item.querySelector('.faq-question').addEventListener('click', function() { const isOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item').forEach(function(otherItem) { otherItem.classList.remove('open'); }); if (!isOpen) { item.classList.add('open'); } }); });
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) { anchor.addEventListener('click', function(e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
+    </script>
 </body>
 </html>
