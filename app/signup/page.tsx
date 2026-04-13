@@ -17,8 +17,8 @@ export default function SignupPage() {
     <main className="min-h-screen">
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md border-b border-[var(--border)] bg-[var(--bg)]/80">
         <a href="/" className="text-xl font-bold bg-gradient-to-r from-[var(--accent)] to-[var(--accent2)] bg-clip-text text-transparent">FirstDollar</a>
-        <div className="flex gap-6 text-sm text-[var(--muted)]"><a href="/challenge" className="hover:text-[var(--fg)] transition">Challenge</a><a href="/community" className="hover:text-[var(--fg)] transition">Cohort</a><a href="/traction-score" className="hover:text-[var(--fg)] transition">Traction Score</a></div>
-        <a href="/signup" className="px-4 py-2 text-sm font-semibold rounded-lg bg-[var(--accent)] text-[var(--bg)]">Join Now</a>
+        <div className="flex gap-6 text-sm text-[var(--muted)]"><a href="/challenge.html" className="hover:text-[var(--fg)] transition">Challenge</a><a href="/community.html" className="hover:text-[var(--fg)] transition">Cohort</a><a href="/traction-score.html" className="hover:text-[var(--fg)] transition">Traction Score</a></div>
+        <a href="/signup.html" className="px-4 py-2 text-sm font-semibold rounded-lg bg-[var(--accent)] text-[var(--bg)]">Join Now</a>
       </nav>
       <section className="pt-32 pb-16 px-6 text-center">
         <div className="max-w-3xl mx-auto">
@@ -57,7 +57,7 @@ export default function SignupPage() {
         </div>
       </section>
       <section className="py-16 px-6"><div className="max-w-3xl mx-auto"><h2 className="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2><div className="space-y-3">{faqs.map((faq,i)=><div key={i} className="bg-[var(--card)] border border-[var(--border)] rounded-xl overflow-hidden"><button onClick={()=>setOpenFaq(openFaq===i?null:i)} className="w-full px-6 py-4 text-left flex items-center justify-between font-medium">{faq.q}<span className="text-[var(--muted)]">{openFaq===i?"−":"+"}</span></button>{openFaq===i&&<div className="px-6 pb-4 text-sm text-[var(--muted)]">{faq.a}</div>}</div>)}</div></div></section>
-      <footer className="py-8 px-6 border-t border-[var(--border)]"><div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[var(--muted)]"><div className="font-bold bg-gradient-to-r from-[var(--accent)] to-[var(--accent2)] bg-clip-text text-transparent">FirstDollar</div><div className="flex gap-6"><a href="/challenge">Challenge</a><a href="/community">Cohort</a><a href="/traction-score">Traction Score</a></div><div>© 2026 FirstDollar</div></div></footer>
+      <footer className="py-8 px-6 border-t border-[var(--border)]"><div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[var(--muted)]"><div className="font-bold bg-gradient-to-r from-[var(--accent)] to-[var(--accent2)] bg-clip-text text-transparent">FirstDollar</div><div className="flex gap-6"><a href="/challenge.html">Challenge</a><a href="/community.html">Cohort</a><a href="/traction-score.html">Traction Score</a></div><div>© 2026 FirstDollar</div></div></footer>
     </main>
   );
 }

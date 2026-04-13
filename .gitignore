@@ -4,3 +4,4 @@ out/
 .netlify/
 .vercel/
 *.local
+netlify.toml

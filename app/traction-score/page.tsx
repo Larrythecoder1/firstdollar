@@ -18,16 +18,16 @@ export default function TractionScorePage() {
   return (
     <main className="min-h-screen">
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md border-b border-[var(--border)] bg-[var(--bg)]/80">
-        <a href="/" className="text-xl font-bold bg-gradient-to-r from-[var(--accent)] to-[var(--accent2)] bg-clip-text text-transparent">FirstDollar</a>
-        <div className="flex gap-6 text-sm text-[var(--muted)]"><a href="/challenge" className="hover:text-[var(--fg)] transition">Challenge</a><a href="/community" className="hover:text-[var(--fg)] transition">Cohort</a><a href="/traction-score" className="text-[var(--accent)]">Traction Score</a></div>
-        <a href="/signup" className="px-4 py-2 text-sm font-semibold rounded-lg bg-[var(--accent)] text-[var(--bg)]">Join Now</a>
+        <a href="/index.html" className="text-xl font-bold bg-gradient-to-r from-[var(--accent)] to-[var(--accent2)] bg-clip-text text-transparent">FirstDollar</a>
+        <div className="flex gap-6 text-sm text-[var(--muted)]"><a href="/challenge.html" className="hover:text-[var(--fg)] transition">Challenge</a><a href="/community.html" className="hover:text-[var(--fg)] transition">Cohort</a><a href="/traction-score.html" className="text-[var(--accent)]">Traction Score</a></div>
+        <a href="/signup.html" className="px-4 py-2 text-sm font-semibold rounded-lg bg-[var(--accent)] text-[var(--bg)]">Join Now</a>
       </nav>
       <section className="pt-32 pb-16 px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-medium rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/10 text-[var(--accent)]"><span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse"/>Your revenue momentum, in one number</div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">The Traction Score.<br/><span className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent2)] bg-clip-text text-transparent">Know Where You Stand.</span></h1>
           <p className="text-lg text-[var(--muted)] mb-8">A single number that captures your revenue momentum. Track MRR, churn, LTV, and growth rate in one dashboard.</p>
-          <div className="flex gap-4 justify-center"><a href="/signup" className="px-8 py-4 text-lg font-bold rounded-xl bg-[var(--accent)] text-[var(--bg)]">Track Your Score — $99/mo</a><a href="/challenge" className="px-8 py-4 text-lg font-semibold rounded-xl border border-[var(--border)]">See the Challenge</a></div>
+          <div className="flex gap-4 justify-center"><a href="/signup.html" className="px-8 py-4 text-lg font-bold rounded-xl bg-[var(--accent)] text-[var(--bg)]">Track Your Score — $99/mo</a><a href="/challenge.html" className="px-8 py-4 text-lg font-semibold rounded-xl border border-[var(--border)]">See the Challenge</a></div>
         </div>
       </section>
       <section className="py-8 px-6">
@@ -44,7 +44,7 @@ export default function TractionScorePage() {
         </div>
       </section>
       <section className="py-16 px-6"><div className="max-w-4xl mx-auto"><h2 className="text-2xl font-bold text-center mb-12">How the Traction Score Works</h2><div className="grid grid-cols-1 md:grid-cols-3 gap-8">{[{step:"1",title:"Update Weekly",desc:"Enter your MRR, churn, and new customers once a week. Takes 2 minutes."},{step:"2",title:"Get Your Score",desc:"The algorithm calculates a single number from 0-100 based on 4 weighted components."},{step:"3",title:"Track Progress",desc:"See your score improve over time. Compare to cohort benchmarks."}].map((item,i)=><div key={i} className="text-center"><div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent2)] flex items-center justify-center text-xl font-bold text-[var(--bg)] mx-auto mb-4">{item.step}</div><h3 className="font-bold mb-2">{item.title}</h3><p className="text-sm text-[var(--muted)]">{item.desc}</p></div>)}</div></div></section>
-      <section className="py-20 px-6 text-center"><div className="max-w-2xl mx-auto"><h2 className="text-3xl font-bold mb-4">Start Tracking Your Momentum</h2><p className="text-[var(--muted)] mb-8">Join FirstDollar and get the Traction Score, the 30-day challenge, and the cohort community — all for $99/mo.</p><a href="/signup" className="inline-block px-8 py-4 text-lg font-bold rounded-xl bg-[var(--accent)] text-[var(--bg)]">Get Started — $99/mo</a></div></section>
+      <section className="py-20 px-6 text-center"><div className="max-w-2xl mx-auto"><h2 className="text-3xl font-bold mb-4">Start Tracking Your Momentum</h2><p className="text-[var(--muted)] mb-8">Join FirstDollar and get the Traction Score, the 30-day challenge, and the cohort community — all for $99/mo.</p><a href="/signup.html" className="inline-block px-8 py-4 text-lg font-bold rounded-xl bg-[var(--accent)] text-[var(--bg)]">Get Started — $99/mo</a></div></section>
     </main>
   );
 }

@@ -22,15 +22,15 @@ export default function CommunityPage() {
     <main className="min-h-screen">
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md border-b border-[var(--border)] bg-[var(--bg)]/80">
         <a href="/" className="text-xl font-bold bg-gradient-to-r from-[var(--accent)] to-[var(--accent2)] bg-clip-text text-transparent">FirstDollar</a>
-        <div className="flex gap-6 text-sm text-[var(--muted)]"><a href="/challenge" className="hover:text-[var(--fg)] transition">Challenge</a><a href="/community" className="text-[var(--accent)]">Cohort</a><a href="/traction-score" className="hover:text-[var(--fg)] transition">Traction Score</a></div>
-        <a href="/signup" className="px-4 py-2 text-sm font-semibold rounded-lg bg-[var(--accent)] text-[var(--bg)]">Join Now</a>
+        <div className="flex gap-6 text-sm text-[var(--muted)]"><a href="/challenge.html" className="hover:text-[var(--fg)] transition">Challenge</a><a href="/community.html" className="text-[var(--accent)]">Cohort</a><a href="/traction-score.html" className="hover:text-[var(--fg)] transition">Traction Score</a></div>
+        <a href="/signup.html" className="px-4 py-2 text-sm font-semibold rounded-lg bg-[var(--accent)] text-[var(--bg)]">Join Now</a>
       </nav>
       <section className="pt-32 pb-16 px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-medium rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/10 text-[var(--accent)]"><span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse"/>Cohort 4 — 28 founders</div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">Your Cohort.<br/><span className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent2)] bg-clip-text text-transparent">Your Battle Buddies.</span></h1>
           <p className="text-lg text-[var(--muted)] mb-8">Work alongside 25-35 solo founders. Share wins, debug failures, celebrate closures.</p>
-          <div className="flex gap-4 justify-center"><a href="/signup" className="px-8 py-4 text-lg font-bold rounded-xl bg-[var(--accent)] text-[var(--bg)]">Join Cohort 4 — $99/mo</a><a href="/challenge" className="px-8 py-4 text-lg font-semibold rounded-xl border border-[var(--border)]">See the Challenge</a></div>
+          <div className="flex gap-4 justify-center"><a href="/signup.html" className="px-8 py-4 text-lg font-bold rounded-xl bg-[var(--accent)] text-[var(--bg)]">Join Cohort 4 — $99/mo</a><a href="/challenge.html" className="px-8 py-4 text-lg font-semibold rounded-xl border border-[var(--border)]">See the Challenge</a></div>
         </div>
       </section>
       <section className="py-8 px-6">
@@ -43,7 +43,7 @@ export default function CommunityPage() {
           {tab==="sprints" && <div className="grid grid-cols-1 md:grid-cols-2 gap-6">{sprints.map((s,i)=><div key={i} className="bg-[var(--card)] border border-[var(--border)] rounded-xl p-6"><div className={`inline-flex items-center gap-2 px-3 py-1 mb-4 text-xs font-medium rounded-full bg-gradient-to-r ${s.color} text-white`}>{s.week}</div><h3 className="text-xl font-bold mb-2">{s.theme}</h3><p className="text-sm text-[var(--muted)]">{s.focus}</p></div>)}</div>}
         </div>
       </section>
-      <section className="py-20 px-6 text-center"><div className="max-w-2xl mx-auto"><h2 className="text-3xl font-bold mb-4">Ready to Run With Us?</h2><p className="text-[var(--muted)] mb-8">Cohort 4 starts May 15. Spots are filling up.</p><a href="/signup" className="inline-block px-8 py-4 text-lg font-bold rounded-xl bg-[var(--accent)] text-[var(--bg)]">Join Cohort 4 — $99/mo</a></div></section>
+      <section className="py-20 px-6 text-center"><div className="max-w-2xl mx-auto"><h2 className="text-3xl font-bold mb-4">Ready to Run With Us?</h2><p className="text-[var(--muted)] mb-8">Cohort 4 starts May 15. Spots are filling up.</p><a href="/signup.html" className="inline-block px-8 py-4 text-lg font-bold rounded-xl bg-[var(--accent)] text-[var(--bg)]">Join Cohort 4 — $99/mo</a></div></section>
     </main>
   );
 }

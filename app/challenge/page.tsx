@@ -50,8 +50,8 @@ export default function ChallengePage() {
           FirstDollar
         </a>
         <div className="flex gap-6 text-sm text-[var(--muted)]">
-          <a href="/challenge" className="hover:text-[var(--fg)] transition">30-Day Challenge</a>
-          <a href="/cohort" className="hover:text-[var(--fg)] transition">Cohort</a>
+          <a href="/challenge.html" className="hover:text-[var(--fg)] transition">30-Day Challenge</a>
+          <a href="/community.html" className="hover:text-[var(--fg)] transition">Cohort</a>
           <a href="/#pricing" className="hover:text-[var(--fg)] transition">Pricing</a>
         </div>
         <a href="/#waitlist" className="px-4 py-2 text-sm font-semibold rounded-lg bg-[var(--accent)] text-[var(--bg)] hover:opacity-90 transition">
@@ -79,7 +79,7 @@ export default function ChallengePage() {
             <a href="/#waitlist" className="px-8 py-4 text-lg font-bold rounded-xl bg-[var(--accent)] text-[var(--bg)] hover:opacity-90 transition shadow-lg shadow-[var(--accent)]/25">
               Join the Cohort — $99/mo
             </a>
-            <a href="/cohort" className="px-8 py-4 text-lg font-semibold rounded-xl border border-[var(--border)] hover:border-[var(--accent)] transition">
+            <a href="/community.html" className="px-8 py-4 text-lg font-semibold rounded-xl border border-[var(--border)] hover:border-[var(--accent)] transition">
               See the Community →
             </a>
           </div>
@@ -238,8 +238,8 @@ export default function ChallengePage() {
             FirstDollar
           </div>
           <div className="flex gap-6 text-sm text-[var(--muted)]">
-            <a href="/challenge" className="hover:text-[var(--fg)] transition">30-Day Challenge</a>
-            <a href="/cohort" className="hover:text-[var(--fg)] transition">Cohort</a>
+            <a href="/challenge.html" className="hover:text-[var(--fg)] transition">30-Day Challenge</a>
+            <a href="/community.html" className="hover:text-[var(--fg)] transition">Cohort</a>
             <a href="/#pricing" className="hover:text-[var(--fg)] transition">Pricing</a>
           </div>
           <div className="text-xs text-[var(--muted)]">© 2025 FirstDollar. Built for founders who ship.</div>
